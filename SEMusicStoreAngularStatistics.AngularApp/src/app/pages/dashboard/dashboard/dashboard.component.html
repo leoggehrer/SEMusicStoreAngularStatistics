@@ -1,0 +1,62 @@
+﻿<div class="container mt-5">
+  <h1>Willkommen im Dashboard!</h1>
+
+    <div class="container-fluid mt-4">
+
+      <!-- Oeffentliche Karten -->
+      <div class="row">
+        <div class="col-md-3 mb-4" *ngFor="let card of publicCards">
+          <a [routerLink]="[card.type]" class="text-decoration-none">
+            <div class="card shadow-sm h-100" [ngClass]="card.bg">
+              <div class="card-body">
+                <h5 class="card-title">{{ card.title }}</h5>
+                <p class="card-text">{{ card.text }}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <hr />
+      <!-- Statistik Karten -->
+      <h1>Statistiken</h1>
+      <div class="row">
+        <div class="col-md-3 mb-4" *ngFor="let card of statisticCards">
+          <a [routerLink]="[card.type]" class="text-decoration-none">
+            <div class="card shadow-sm h-100" [ngClass]="card.bg">
+              <div class="card-body">
+                <h5 class="card-title">{{ card.title }}</h5>
+                <p class="card-text">{{ card.text }}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+
+      <!-- Geschuetzter Karten -->
+      <div class="row">
+        <div class="col-md-3 mb-4" *ngFor="let card of authCards">
+          <a [routerLink]="[card.type]" class="text-decoration-none">
+            <div class="card shadow-sm h-100" [ngClass]="card.bg">
+              <div class="card-body">
+                <h5 class="card-title">{{ card.title }}</h5>
+                <p class="card-text">{{ card.text }}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div *ngIf="isLoginReqired">
+        <hr />
+        <div *ngIf="isLoggedIn">
+          <button class="btn btn-danger mt-2" (click)="logout()">Logout</button>
+        </div>
+        <div *ngIf="!isLoggedIn">
+          <a class="btn btn-primary mt-2" [routerLink]="['/auth/login']">Login</a>
+        </div>
+      </div>
+
+  </div>
+</div>

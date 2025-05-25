@@ -1,0 +1,66 @@
+﻿<div *ngIf="dataItem" class="card mt-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h3>{{ title }}</h3>
+        <button type="button"
+                class="btn btn-sm btn-danger"
+                aria-label="Schlie�en"
+                (click)="dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="card-body">
+        <form (ngSubmit)="submitForm()" #editForm="ngForm">
+            <!-- Fuegen Sie hier die Elemente nach den folgenden Schemata hinzu:-->
+
+            <div class="mb-3">
+              <label for="album" class="form-label">Album</label>
+              <select id="album" name="albumId" class="form-select" [(ngModel)]="dataItem.albumId" #albumId="ngModel"
+                required>
+                <option *ngFor="let item of albums" [ngValue]="item.id">
+                  {{ item.title }}
+                </option>
+              </select>
+              <div class="invalid-feedback" *ngIf="albumId.invalid && albumId.touched">
+                Bitte wähle ein Album.
+              </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Titel</label>
+                <input class="form-control" [(ngModel)]="dataItem.title" name="title" required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Composer</label>
+                <input class="form-control" [(ngModel)]="dataItem.composer" name="composer" required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Milliseconds</label>
+                <input class="form-control" [(ngModel)]="dataItem.milliseconds" name="milliseconds" required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Bytes</label>
+                <input class="form-control" [(ngModel)]="dataItem.bytes" name="bytes" required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Price</label>
+                <input class="form-control" [(ngModel)]="dataItem.unitPrice" name="unitPrice" required />
+            </div>
+
+            <div class="mb-3">
+              <label for="genre" class="form-label">Genre</label>
+              <select id="genre" name="genreId" class="form-select" [(ngModel)]="dataItem.genreId" #genreId="ngModel"
+                required>
+                <option *ngFor="let item of genres" [ngValue]="item.id">
+                  {{ item.name }}
+                </option>
+              </select>
+              <div class="invalid-feedback" *ngIf="genreId.invalid && genreId.touched">
+                Bitte wähle ein Genre.
+              </div>
+            </div>
+
+            <button class="btn btn-success" type="submit">Speichern</button>
+            <button class="btn btn-secondary ms-2" type="button" (click)="cancelForm()">Abbrechen</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+﻿<div *ngIf="dataItem" class="card mt-4">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h3>{{ title }}</h3>
+    <button type="button" class="btn btn-sm btn-danger" aria-label="Schließen" (click)="dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="submitForm()" #editForm="ngForm">
+
+      <div class="mb-3">
+        <label for="artist" class="form-label">Artist</label>
+        <select id="artist" name="artistId" class="form-select" [(ngModel)]="dataItem.artistId" #artistId="ngModel"
+          required>
+          <option *ngFor="let artist of getArtistList" [ngValue]="artist.id">
+            {{ artist.name }}
+          </option>
+        </select>
+        <div class="invalid-feedback" *ngIf="artistId.invalid && artistId.touched">
+          Bitte wähle einen Artist.
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Album</label>
+        <input class="form-control" [(ngModel)]="dataItem.title" name="title" required />
+      </div>
+
+      <button class="btn btn-success" type="submit">Speichern</button>
+      <button class="btn btn-secondary ms-2" type="button" (click)="cancelForm()">Abbrechen</button>
+    </form>
+  </div>
+</div>
