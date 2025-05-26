@@ -58,3 +58,43 @@ FROM
 GROUP BY 
     ArtistId, ArtistName;
 
+CREATE VIEW AlbumTracks
+AS
+SELECT 
+	AlbumId,
+	TrackId,
+  AlbumTitle,
+  TrackTitle
+FROM MusicStoreInfos;
+
+CREATE VIEW AlbumStatistics
+AS
+SELECT 
+  AlbumId,
+  AlbumTitle,
+  COUNT(TrackId) AS NumberSongs,
+  SUM(Milliseconds) / 1000 AS TotalSongTimeSeconds,
+  AVG(Milliseconds / 1000) AS AverageSongTimeSeconds
+FROM MusicStoreInfos
+GROUP BY AlbumId, AlbumTitle;
+
+CREATE VIEW GenreTracks
+AS
+SELECT
+	GenreId,
+  GenreName,
+  COUNT(TrackId) AS NumberSongs
+FROM MusicStoreInfos
+GROUP BY GenreId, GenreName;
+
+CREATE VIEW GenreStatistics
+AS
+SELECT 
+	GenreId,
+  GenreName,
+  COUNT(TrackId) AS NumberSongs,
+  SUM(Milliseconds) / 1000 AS TotalSongTimeSeconds,
+  AVG(Milliseconds / 1000) AS AverageSongTimeSeconds
+FROM MusicStoreInfos
+WHERE GenreName IS NOT NULL
+GROUP BY GenreId, GenreName;

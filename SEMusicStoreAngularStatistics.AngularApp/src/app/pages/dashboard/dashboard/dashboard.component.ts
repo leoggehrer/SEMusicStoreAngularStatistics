@@ -35,6 +35,10 @@ export class DashboardComponent {
     { title: 'Artist mit Alben', text: 'Statistik: Artist und deren Alben', type: '/artistalbums', bg: 'bg-info text-white' },
     { title: 'Artist mit Songs', text: 'Statistik: Artist und deren Songs', type: '/artisttracks', bg: 'bg-info text-white' },
     { title: 'Artist mit Statistik', text: 'Statistik: Artist', type: '/artiststatistics', bg: 'bg-info text-white' },
+    { title: 'Album mit Songs', text: 'Statistik: Album und deren Songs', type: '/albumtracks', bg: 'bg-info text-white' },
+    { title: 'Album mit Statistik', text: 'Statistik: Album', type: '/albumstatistics', bg: 'bg-info text-white' },
+    { title: 'Genre mit Songs', text: 'Statistik: Genre und deren Songs', type: '/genretracks', bg: 'bg-info text-white' },
+    { title: 'Genre mit Statistik', text: 'Statistik: Genre', type: '/genrestatistics', bg: 'bg-info text-white' },
   ];
 
   public authCards: DashboardCard[] = [

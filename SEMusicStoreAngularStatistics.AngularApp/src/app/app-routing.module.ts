@@ -11,6 +11,10 @@ import { AlbumArtistListComponent } from './pages/albumartists/album-artist-list
 import { ArtistAlbumListComponent } from './pages/artistalbums/artist-album-list/artist-album-list.component';
 import { ArtistTrackListComponent } from './pages/artisttracks/artist-track-list/artist-track-list.component';
 import { ArtistStatisticListComponent } from './pages/artiststatistics/artist-statistic-list/artist-statistic-list.component';
+import { AlbumTrackListComponent } from './pages/albumtracks/album-track-list/album-track-list.component';
+import { AlbumStatisticListComponent } from './pages/albumstatistics/album-statistic-list/album-statistic-list.component';
+import { GenreTrackListComponent } from './pages/genretracks/genre-track-list/genre-track-list.component';
+import { GenreStatisticListComponent } from './pages/genrestatistics/genre-statistic-list/genre-statistic-list.component';
 
 const routes: Routes = [
   // Öffentlicher Login-Bereich
@@ -23,11 +27,17 @@ const routes: Routes = [
   { path: 'albums', component: AlbumListComponent, canActivate: [AuthGuard] },
   { path: 'tracks', component: TrackListComponent, canActivate: [AuthGuard] },
   { path: 'albumartists', component: AlbumArtistListComponent, canActivate: [AuthGuard] },
-  { path: 'artisttracks', component: ArtistTrackListComponent, canActivate: [AuthGuard] },
-  { path: 'artiststatistics', component: ArtistStatisticListComponent, canActivate: [AuthGuard] },
 
   // Statistiken:
   { path: 'artistalbums', component: ArtistAlbumListComponent, canActivate: [AuthGuard] },
+  { path: 'artisttracks', component: ArtistTrackListComponent, canActivate: [AuthGuard] },
+  { path: 'artiststatistics', component: ArtistStatisticListComponent, canActivate: [AuthGuard] },
+
+  { path: 'albumtracks', component: AlbumTrackListComponent, canActivate: [AuthGuard] },
+  { path: 'albumstatistics', component: AlbumStatisticListComponent, canActivate: [AuthGuard] },
+
+  { path: 'genretracks', component: GenreTrackListComponent, canActivate: [AuthGuard] },
+  { path: 'genrestatistics', component: GenreStatisticListComponent, canActivate: [AuthGuard] },
 
   // Redirect von leerem Pfad auf Dashboard
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
