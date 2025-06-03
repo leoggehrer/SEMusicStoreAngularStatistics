@@ -22,22 +22,22 @@ const routes: Routes = [
   { path: 'auth/login', component: LoginComponent },
 
   // Geschützter Bereich mit Dashboard und Unterseiten
-  { path: 'genres', component: GenreListComponent, canActivate: [AuthGuard] },
-  { path: 'artists', component: ArtistListComponent, canActivate: [AuthGuard] },
-  { path: 'albums', component: AlbumListComponent, canActivate: [AuthGuard] },
-  { path: 'tracks', component: TrackListComponent, canActivate: [AuthGuard] },
-  { path: 'albumartists', component: AlbumArtistListComponent, canActivate: [AuthGuard] },
+  { path: 'genres', component: GenreListComponent },
+  { path: 'artists', component: ArtistListComponent },
+  { path: 'albums', component: AlbumListComponent },
+  { path: 'tracks', component: TrackListComponent },
+  { path: 'albumartists', component: AlbumArtistListComponent },
 
   // Statistiken:
-  { path: 'artistalbums', component: ArtistAlbumListComponent, canActivate: [AuthGuard] },
-  { path: 'artisttracks', component: ArtistTrackListComponent, canActivate: [AuthGuard] },
-  { path: 'artiststatistics', component: ArtistStatisticListComponent, canActivate: [AuthGuard] },
+  { path: 'artistalbums', component: ArtistAlbumListComponent },
+  { path: 'artisttracks', component: ArtistTrackListComponent },
+  { path: 'artiststatistics', component: ArtistStatisticListComponent },
 
-  { path: 'albumtracks', component: AlbumTrackListComponent, canActivate: [AuthGuard] },
-  { path: 'albumstatistics', component: AlbumStatisticListComponent, canActivate: [AuthGuard] },
+  { path: 'albumtracks', component: AlbumTrackListComponent },
+  { path: 'albumstatistics', component: AlbumStatisticListComponent },
 
-  { path: 'genretracks', component: GenreTrackListComponent, canActivate: [AuthGuard] },
-  { path: 'genrestatistics', component: GenreStatisticListComponent, canActivate: [AuthGuard] },
+  { path: 'genretracks', component: GenreTrackListComponent },
+  { path: 'genrestatistics', component: GenreStatisticListComponent },
 
   // Redirect von leerem Pfad auf Dashboard
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
