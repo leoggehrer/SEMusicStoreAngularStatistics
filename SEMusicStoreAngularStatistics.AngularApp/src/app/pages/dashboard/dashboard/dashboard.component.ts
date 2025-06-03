@@ -24,16 +24,14 @@ export class DashboardCard {
 export class DashboardComponent {
 
     public publicCards: DashboardCard[] = [
-        { title: 'Albums', text: 'Eine Vielzahl von populäre Alben', type: '/custom/albums', bg: 'bg-success text-white' },
-        { title: 'Tracks', text: 'Viele bekannte Songs', type: '/custom/tracks', bg: 'bg-success text-white' },
-    ];
-
-    public authCards: DashboardCard[] = [
         { title: 'Genre', text: 'Alle Genres im Musikladen', type: '/genres', bg: 'bg-primary text-white' },
         { title: 'Künstler', text: 'Eine Übersicht von bekannten Künstlern', type: '/artists', bg: 'bg-success text-white' },
         { title: 'Albums', text: 'Eine Vielzahl von populäre Alben (Version 1)', type: '/albums', bg: 'bg-success text-white' },
         { title: 'Tracks', text: 'Viele bekannte Songs', type: '/tracks', bg: 'bg-success text-white' },
         { title: 'Album mit Artist', text: 'Eine Vielzahl von populäre Alben (Version 2)', type: '/albumartists', bg: 'bg-success text-white' },
+    ];
+
+    public authCards: DashboardCard[] = [
     ];
 
     public statisticCards: DashboardCard[] = [

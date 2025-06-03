@@ -19,25 +19,27 @@
         </div>
 
         <!-- Geschuetzte Karten -->
-        <hr />
-        <h2>Geschützter Bereich</h2>
+        <ng-container *ngIf="isLoginReqired">
+            <hr />
+            <h2>Geschützter Bereich</h2>
 
-        <div style="margin: 20px;" *ngIf="isLoginReqired">
-            <div class="text-end">
-                <div *ngIf="isLoggedIn">
-                    <button class="btn btn-danger mt-2 d-inline-flex align-items-center" (click)="logout()">
-                        <i class="bi bi-arrow-left-square" style="margin-right: 10px;"></i>
-                        Logout
-                    </button>
-                </div>
-                <div *ngIf="!isLoggedIn">
-                    <a class="btn btn-primary mt-2 d-inline-flex align-items-center" [routerLink]="['/auth/login']">
-                        Login
-                        <i class="bi bi-arrow-right-square" style="margin-left: 10px;"></i>
-                    </a>
+            <div style="margin: 20px;" *ngIf="isLoginReqired">
+                <div class="text-end">
+                    <div *ngIf="isLoggedIn">
+                        <button class="btn btn-danger mt-2 d-inline-flex align-items-center" (click)="logout()">
+                            <i class="bi bi-arrow-left-square" style="margin-right: 10px;"></i>
+                            Logout
+                        </button>
+                    </div>
+                    <div *ngIf="!isLoggedIn">
+                        <a class="btn btn-primary mt-2 d-inline-flex align-items-center" [routerLink]="['/auth/login']">
+                            Login
+                            <i class="bi bi-arrow-right-square" style="margin-left: 10px;"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
+        </ng-container>
 
         <div class="row">
             <div class="col-md-3 mb-4" *ngFor="let card of authCards">
